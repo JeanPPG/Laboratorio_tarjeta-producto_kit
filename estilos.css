@@ -13,6 +13,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
   max-width: 900px;
+  align-items: stretch;
 }
 
 /* PASO 3 · Aquí la página le entrega al componente el color de tu marca.

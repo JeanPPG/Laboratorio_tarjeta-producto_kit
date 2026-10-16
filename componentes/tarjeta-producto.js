@@ -9,31 +9,63 @@ plantilla.innerHTML = `
   <style>
     :host {
       display: block;
+      height: 100%;
       border: 1px solid var(--color-marca, #B08968);
       border-radius: 12px;
-      padding: 16px;
       background: #fff;
+      overflow: hidden;
     }
-    .marca {
-      color: var(--color-marca, #B08968);
-      margin: 8px 0 4px;
+    .tarjeta {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .foto {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #eee;
     }
     ::slotted(img) {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      border-radius: 8px;
+    }
+    .cuerpo {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px;
+      flex: 1;
     }
     ::slotted(h3) {
       color: var(--color-marca, #B08968);
-      margin: 8px 0 4px;
+      margin: 0;
+    }
+    .descripcion {
+      margin: 0;
+      flex: 1;
+    }
+    ::slotted(p) {
+      margin: 0;
+    }
+    .marca {
+      color: var(--color-marca, #B08968);
+      font-weight: 700;
+      margin: auto 0 0;
+      padding-top: 8px;
+      border-top: 1px solid #eee;
     }
   </style>
 
-  <slot name="foto"></slot>
-  <slot name="nombre"></slot>
-  <slot>Sin descripción</slot>
-  <p class="marca">Precio: $<span id="precio">0</span></p>
+  <div class="tarjeta">
+    <div class="foto"><slot name="foto"></slot></div>
+    <div class="cuerpo">
+      <slot name="nombre"></slot>
+      <div class="descripcion"><slot>Sin descripción</slot></div>
+      <p class="marca">Precio: $<span id="precio">0</span></p>
+    </div>
+  </div>
 `;
 
 export class TarjetaProducto extends HTMLElement {
