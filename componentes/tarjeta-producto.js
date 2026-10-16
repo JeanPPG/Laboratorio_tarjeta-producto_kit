@@ -7,18 +7,15 @@
 const plantilla = document.createElement("template");
 plantilla.innerHTML = `
   <style>
-    /* PASO 3 · Escribe aquí los estilos del componente:
-       - :host con display y un borde
-       - el color de marca leído con var(--color-marca, un-color-de-respaldo)
-       - ::slotted(...) para la foto y el nombre que llegan de la página
-       RETO EXTRA · :host([destacado]) que cambie el borde */
+    :host {
+      display: block;
+    }
   </style>
 
-  <!-- PASO 2 · Escribe aquí:
-       - un slot con nombre "foto"
-       - un slot con nombre "nombre"
-       - un slot sin nombre, con un texto de respaldo
-       - un lugar donde se vea el precio (por ejemplo un <span id="precio">) -->
+  <slot name="foto"></slot>
+  <slot name="nombre"></slot>
+  <slot>Sin descripción</slot>
+  <p>Precio: $<span id="precio">0</span></p>
 `;
 
 export class TarjetaProducto extends HTMLElement {
@@ -32,11 +29,13 @@ export class TarjetaProducto extends HTMLElement {
     super();
     // PASO 2 · Crea el Shadow DOM en modo "open".
     // Recuerda: aquí no se leen atributos ni se dibuja HTML.
+    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
     // PASO 2 · Agrega al Shadow DOM una COPIA de la plantilla con cloneNode(true).
     // PASO 3 · Muestra el precio inicial.
+    this.shadowRoot.append(plantilla.content.cloneNode(true));
   }
 
   attributeChangedCallback(nombre, anterior, valor) {
@@ -55,4 +54,5 @@ export class TarjetaProducto extends HTMLElement {
 }
 
 // ───────── PASO 1 · Registra el componente ─────────
-// Escribe aquí customElements.define(...) con una etiqueta que tenga guion.
+// Etiqueta con guion para no chocar con elementos futuros del estándar.
+customElements.define("tarjeta-producto", TarjetaProducto);

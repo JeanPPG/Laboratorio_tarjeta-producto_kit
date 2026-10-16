@@ -26,15 +26,15 @@ Programación Integrativa de Componentes Web · Unidad 1: Web Components
 
 ### Paso 1 · index.html y el módulo
 
-- Etiqueta que registramos:
-- ¿Por qué el nombre debe llevar guion?:
-- Ruta del módulo y cómo lo importa la página:
+- Etiqueta que registramos: `tarjeta-producto`
+- ¿Por qué el nombre debe llevar guion?: El estándar exige guion en custom elements para distinguirlos de etiquetas nativas y evitar choques con elementos futuros.
+- Ruta del módulo y cómo lo importa la página: `componentes/tarjeta-producto.js` con `<script type="module" src="./componentes/tarjeta-producto.js">`.
 
 ### Paso 2 · Plantilla, Shadow DOM y slots
 
-- Slots con nombre que tiene la plantilla:
-- Texto de respaldo del slot sin nombre:
-- ¿Qué pasaría si no usáramos `cloneNode(true)`?:
+- Slots con nombre que tiene la plantilla: `foto` y `nombre`
+- Texto de respaldo del slot sin nombre: `Sin descripción`
+- ¿Qué pasaría si no usáramos `cloneNode(true)`?: Moveríamos los nodos originales de la plantilla en vez de copiarlos, la primera tarjeta vaciaría la plantilla y las siguientes quedarían vacías o compartirían los mismos nodos.
 
 ### Paso 3 · Atributo precio y estilos
 
