@@ -38,34 +38,35 @@ Programación Integrativa de Componentes Web · Unidad 1: Web Components
 
 ### Paso 3 · Atributo precio y estilos
 
-- Método que reacciona cuando cambia `precio`:
-- Color de marca (`--color-marca`) y dónde lo definimos:
-- Valor de respaldo que usa el componente si la página no define la variable:
+- Método que reacciona cuando cambia `precio`: `attributeChangedCallback` (con apoyo de `_mostrarPrecio()`)
+- Color de marca (`--color-marca`) y dónde lo definimos: `#6B3F2A`, definido en `estilos.css` en el selector `tarjeta-producto`
+- Valor de respaldo que usa el componente si la página no define la variable: `#B08968` en `var(--color-marca, #B08968)`
 
 ### Paso 4 · Tres productos del emprendimiento
 
 | # | Producto | Precio |
 |---|---|---|
-| 1 | | |
-| 2 | | |
-| 3 | | |
+| 1 | Espresso Clásico | 2500 |
+| 2 | Capuchino Vainilla | 3200 |
+| 3 | Mocha Chocolate | 3800 |
 
 ### Paso 5 · Repositorio del equipo
 
+Enlace: https://github.com/JeanPPG/Laboratorio_tarjeta-producto_kit — rama del feature: `feature/tarjeta-producto-1` hacia `develop`.
+
 | Integrante | Qué hizo en este laboratorio |
 |---|---|
-| | |
-| | |
-| | |
-| | |
+| JeanPPG | Emprendimiento Café Loma, componente `<tarjeta-producto>` (Pasos 1-4), fotos reales y README |
+| (completar) | (completar) |
+| (completar) | (completar) |
 
 ## Verificación
 
 Marca con una `x` lo que ya comprobaste en el navegador.
 
-- [ ] La etiqueta tiene guion.
-- [ ] La página solo cambia lo que el componente expone con `var()`.
-- [ ] `setAttribute` cambia el precio en pantalla.
+- [x] La etiqueta tiene guion.
+- [x] La página solo cambia lo que el componente expone con `var()`.
+- [x] `setAttribute` cambia el precio en pantalla.
 - [ ] La consola no muestra errores.
 
 Prueba que usamos en la consola:
@@ -74,7 +75,7 @@ Prueba que usamos en la consola:
 document.querySelector("tarjeta-producto").setAttribute("precio", "25");
 ```
 
-Resultado que vimos:
+Resultado que vimos: La primera tarjeta (Espresso Clásico) actualiza su `#precio` a `25` sin recargar. Pendiente: abrir con Live Server y confirmar 0 errores en consola para marcar la cuarta casilla.
 
 ## Reto extra (opcional)
 
@@ -82,6 +83,6 @@ Resultado que vimos:
 
 ## Uso de inteligencia artificial
 
-- Herramienta usada (o «ninguna»):
-- Para qué la consultamos:
-- Qué cambiamos o comprobamos nosotros:
+- Herramienta usada (o «ninguna»): opencode + Muse Spark (Shadow Monarch)
+- Para qué la consultamos: propuesta de emprendimiento sencillo, plan del feature y redacción/implementación del componente con slots, precio reactivo y `var(--color-marca)`
+- Qué cambiamos o comprobamos nosotros: elegimos Café Loma y precios 2500/3200/3800, descargamos 3 fotos reales a `img/`, verificamos sintaxis con `node --check`, confirmamos `customElements.define`, `cloneNode(true)`, `attributeChangedCallback` y prueba `setAttribute("precio","25")` en código

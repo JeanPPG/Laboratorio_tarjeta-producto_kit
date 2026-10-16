@@ -9,20 +9,38 @@ plantilla.innerHTML = `
   <style>
     :host {
       display: block;
+      border: 1px solid var(--color-marca, #B08968);
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
+    }
+    .marca {
+      color: var(--color-marca, #B08968);
+      margin: 8px 0 4px;
+    }
+    ::slotted(img) {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    ::slotted(h3) {
+      color: var(--color-marca, #B08968);
+      margin: 8px 0 4px;
     }
   </style>
 
   <slot name="foto"></slot>
   <slot name="nombre"></slot>
   <slot>Sin descripción</slot>
-  <p>Precio: $<span id="precio">0</span></p>
+  <p class="marca">Precio: $<span id="precio">0</span></p>
 `;
 
 export class TarjetaProducto extends HTMLElement {
 
   // PASO 3 · Indica qué atributos observa el componente.
   static get observedAttributes() {
-    return [];
+    return ["precio"];
   }
 
   constructor() {
@@ -36,20 +54,32 @@ export class TarjetaProducto extends HTMLElement {
     // PASO 2 · Agrega al Shadow DOM una COPIA de la plantilla con cloneNode(true).
     // PASO 3 · Muestra el precio inicial.
     this.shadowRoot.append(plantilla.content.cloneNode(true));
+    this._mostrarPrecio();
   }
 
   attributeChangedCallback(nombre, anterior, valor) {
     // PASO 3 · Cuando cambie "precio", actualiza lo que se ve en pantalla.
     // Ojo: si el atributo ya viene escrito en el HTML, este método se ejecuta
     // ANTES que connectedCallback; comprueba que la plantilla ya esté clonada.
+    if (nombre === "precio") {
+      this._mostrarPrecio();
+    }
+  }
+
+  _mostrarPrecio() {
+    const nodo = this.shadowRoot ? this.shadowRoot.querySelector("#precio") : null;
+    if (nodo) {
+      nodo.textContent = this.getAttribute("precio") ?? "0";
+    }
   }
 
   // PASO 3 · La propiedad lee y escribe el atributo, así quedan sincronizados.
   get precio() {
-    return 0;
+    return Number(this.getAttribute("precio"));
   }
 
   set precio(valor) {
+    this.setAttribute("precio", valor);
   }
 }
 
