@@ -4,17 +4,17 @@ Programación Integrativa de Componentes Web · Unidad 1: Web Components
 
 | Dato | Completa |
 |---|---|
-| Emprendimiento | |
+| Emprendimiento | Café Loma |
 | Estudiantes (Apellido Nombre) | |
 | NRC | 36642 |
-| Fecha | |
-| Enlace del repositorio | |
+| Fecha | 2026-10-16 |
+| Enlace del repositorio | https://github.com/JeanPPG/Laboratorio_tarjeta-producto_kit |
 
 ## Propuesta del emprendimiento
 
-- Nombre del emprendimiento:
-- Problema que resuelve:
-- Cliente al que se dirige:
+- Nombre del emprendimiento: Café Loma
+- Problema que resuelve: Entre clases solo hay vending amargo y caro, sin café de especialidad rápido al paso.
+- Cliente al que se dirige: Estudiantes y docentes que quieren café bueno, barato y rápido.
 
 ## Cómo abrir el proyecto
 
