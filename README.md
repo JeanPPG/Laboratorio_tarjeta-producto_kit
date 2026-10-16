@@ -5,7 +5,7 @@ Programación Integrativa de Componentes Web · Unidad 1: Web Components
 | Dato | Completa |
 |---|---|
 | Emprendimiento | Café Loma |
-| Estudiantes (Apellido Nombre) | |
+| Estudiantes (Apellido Nombre) | Peñaranda Jean |
 | NRC | 36642 |
 | Fecha | 2026-10-16 |
 | Enlace del repositorio | https://github.com/JeanPPG/Laboratorio_tarjeta-producto_kit |
@@ -52,13 +52,11 @@ Programación Integrativa de Componentes Web · Unidad 1: Web Components
 
 ### Paso 5 · Repositorio del equipo
 
-Enlace: https://github.com/JeanPPG/Laboratorio_tarjeta-producto_kit — rama del feature: `feature/tarjeta-producto-1` hacia `develop`.
+Enlace: https://github.com/JeanPPG/Laboratorio_tarjeta-producto_kit — `develop` integra `feature/tarjeta-producto-1` (Espresso), `feature/tarjeta-producto-2` (Capuchino) y `feature/tarjeta-producto-3` (Mocha).
 
 | Integrante | Qué hizo en este laboratorio |
 |---|---|
-| JeanPPG | Emprendimiento Café Loma, componente `<tarjeta-producto>` (Pasos 1-4), fotos reales y README |
-| (completar) | (completar) |
-| (completar) | (completar) |
+| Peñaranda Jean | Emprendimiento Café Loma, componente `<tarjeta-producto>` (Pasos 1-4), 3 fotos reales, fix de alineación (imagen 4/3 + flex), reparto una tarjeta por feature, merges a `develop` y README completo |
 
 ## Verificación
 
@@ -67,7 +65,7 @@ Marca con una `x` lo que ya comprobaste en el navegador.
 - [x] La etiqueta tiene guion.
 - [x] La página solo cambia lo que el componente expone con `var()`.
 - [x] `setAttribute` cambia el precio en pantalla.
-- [ ] La consola no muestra errores.
+- [x] La consola no muestra errores.
 
 Prueba que usamos en la consola:
 
@@ -75,7 +73,7 @@ Prueba que usamos en la consola:
 document.querySelector("tarjeta-producto").setAttribute("precio", "25");
 ```
 
-Resultado que vimos: La primera tarjeta (Espresso Clásico) actualiza su `#precio` a `25` sin recargar. Pendiente: abrir con Live Server y confirmar 0 errores en consola para marcar la cuarta casilla.
+Resultado que vimos: La primera tarjeta (Espresso Clásico) actualiza su `#precio` a `25` sin recargar. Página verificada en Live Server con las 3 tarjetas parejas (foto 4/3 sin solape, detalle alineado) y consola sin errores.
 
 ## Reto extra (opcional)
 
